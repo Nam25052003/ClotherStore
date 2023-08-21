@@ -1,0 +1,53 @@
+<div xmlns="https://www.thymeleaf.org">
+	<div class="panel-heading">PRODUCT LIST</div>
+	<table class="table table-condensed">
+		<thead class="bg-secondary" style="font-variant: small-caps;">
+			<tr>
+				<th>ID</th>
+				<th>NAME</th>
+				<th>PRICE</th>
+				<th>DATE</th>
+				<th>IMAGE</th>
+				<th>CATEGORY</th>
+				<th>AVAILABLE?</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in pager.items">
+				<td>{{item.id}}</td>
+				<td>{{item.name}}</td>
+				<td>{{item.price | number : 2}}</td>
+				<td>{{item.createDate | date : 'dd-MM-yyyy'}}</td>
+				<td>{{item.image}}</td>
+				<td>{{item.categories.name}}</td>
+				<td>{{item.available?'Yes':'No'}}</td>
+				<td>
+					<div class="btn-group btn-group-xs">
+						<a ng-click="edit(item)" href="" class="btn btn-secondary"> <i class="glyphicon glyphicon-edit">Edit</i>						 
+						</a> <a ng-click="delete(item)" href="" class="btn btn-danger"> <i class="glyphicon glyphicon-trash">Del</i>							 
+						</a>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<hr>
+	<br>
+	<div class="panel-footer text-center">
+		<button ng-click="pager.first()" class="btn btn-danger">
+			<b class="glyphicon glyphicon-hand-up">first</b>
+		</button>
+		<button ng-click="pager.prev()" class="btn btn-secondary">
+			<b class="glyphicon glyphicon-hand-left">prev</b>
+		</button>
+		<button class="btn btn-danger">{{pager.page + 1}} of
+			{{pager.count}}</button>
+		<button ng-click="pager.next()" class="btn btn-secondary">
+			<b class="glyphicon glyphicon-hand-right">next</b>
+		</button>
+		<button ng-click="pager.last()" class="btn btn-danger">
+			<b class="glyphicon glyphicon-hand-down">last</b>
+		</button>
+	</div>
+</div>

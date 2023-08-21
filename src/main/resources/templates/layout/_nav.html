@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+
+<body>
+	<!-- ***** Header Area Start ***** -->
+	<header class="header-area header-sticky">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<nav class="main-nav">
+						<!-- ***** Logo Start ***** -->
+						<a th:href="@{/home/index}" class="logo">
+							<h1
+								style="font-size: xx-large; font-family: 'Courier New'; color: black; margin-top: 30px;">BEAUTIF-SHOP</h1>
+						</a>
+						<!-- ***** Logo End ***** -->
+						<!-- ***** Menu Start ***** -->
+						<ul class="nav">
+							<li class="scroll-to-section"><a th:href="@{/home/index}"
+								class="active">Home</a></li>
+							<li class="scroll-to-section"><a th:href="@{/product/men}">Men's</a></li>
+							<li class="scroll-to-section"><a th:href="@{/product/woman}">Women's</a></li>
+							<li class="scroll-to-section"><a th:href="@{/product/kids}">Kid's</a></li>
+							<li class="submenu"><a href="javascript:;">Explore</a>
+								<ul>
+									<li><a th:href="@{/other/aboutus}">About Us</a></li>
+									<li><a th:href="@{/product/list}">Products</a></li>
+									<li><a th:href="@{/other/contact}">Contact Us</a></li>
+								</ul></li>
+							<li><a th:href="@{/cart/view}"><img
+									th:src="@{|/assets/images/bag.png|}">{{cart.count}}</a></li>
+							<li class="submenu"><a href="javascript:;"><img
+									th:src="@{|/assets/images/user-icon.png|}">[[${#request.remoteUser}]]</a>
+								<ul th:if="${#request.remoteUser}">
+									<li><a th:href="@{/other/profile}">Profile</a></li>
+									<li><a th:href="@{/order/list}">You orders</a></li>
+									<li
+										th:if="${#request.isUserInRole('DIRE') or #request.isUserInRole('STAF')}"><a
+										th:href="@{/home/admin}">Administration</a></li>
+									<li><a th:href="@{/logout}">Logout</a></li>
+								</ul>
+								<ul th:unless="${#request.remoteUser}">
+									<li><a th:href="@{/security/login/form}">Login</a></li>
+								</ul></li>
+
+						</ul>
+						<a class='menu-trigger'> <span>Menu</span>
+						</a>
+						<!-- ***** Menu End ***** -->
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- ***** Header Area End ***** -->
+</body>
+</html>

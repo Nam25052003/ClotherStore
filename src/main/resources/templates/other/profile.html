@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns="https://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<link
+	href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+	rel="stylesheet">
+<title>Profile Page</title>
+<!-- Angular -->
+<script th:src="@{/assets/js/angular.min.js}"></script>
+<script th:src="@{/assets/js/angular2.min.js}"></script>
+<script th:src="@{/assets/js/shopping-cart-app.js}"></script>
+<script th:src="@{/assets/js/authen.js}"></script>
+<!-- Additional CSS Files -->
+<link rel="stylesheet" th:href="@{/assets/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/assets/css/font-awesome.css}">
+<link rel="stylesheet" th:href="@{/assets/css/templatemo-hexashop.css}">
+<link rel="stylesheet" th:href="@{/assets/css/owl-carousel.css}">
+<link rel="stylesheet" th:href="@{/assets/css/lightbox.css}">
+<link rel="stylesheet" th:href="@{/assets/css/style.css}">
+<link rel="stylesheet" th:href="@{/assets/css/cart-view.css}">
+<link rel="stylesheet" th:href="@{/assets/css/checkout.css}">
+</head>
+
+<body ng-app="app" ng-controller="ctrl">
+	<!-- ***** Preloader Start ***** -->
+	<div id="preloader">
+		<div class="jumper">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+	<!-- ***** Preloader End ***** -->
+
+	<!-- ***** header Start ***** -->
+	<header th:replace="/layout/_nav.html"></header>
+	<!-- ***** header End ***** -->
+
+	<div class="container checkout">
+		<div class="container py-5">
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="card mb-4">
+						<div class="card-body text-center">
+							<!-- 		<th:block th:if="{{$auth.user.photo}} == null">
+							<img th:src="@{|/assets/images/{{$auth.user.photo}}|}"
+									alt="avatar" class="rounded-circle img-fluid"
+									style="width: 150px;">
+							</th:block>
+							<th:block th:unless="{{$auth.user.photo}} != null">
+							<img th:src="@{|/assets/images/{{$auth.user.photo}}|}"
+									alt="avatar" class="rounded-circle img-fluid"
+									style="width: 150px;">
+							</th:block> -->
+							<img th:src="@{|/assets/images/{{$auth.user.photo}}|}"
+								alt="avatar" class="" style="width: 150px;">
+							<h5 class="my-3"></h5>
+							<div class="d-flex justify-content-center mb-2">
+								<button type="button" class="btn btn-primary">Choose
+									image</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-8 order-md-1">
+					<form class="needs-validation" novalidate="">
+						<div class="mb-3">
+							<label for="username">Username</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">@</span>
+								</div>
+								<div class="form-control">{{$auth.user.username}}</div>
+								<div class="invalid-feedback" style="width: 100%;">Your
+									username is required.</div>
+							</div>
+						</div>
+						<div class="mb-3">
+							<label for="fullname">Fullname <span class="text-muted"></span></label>
+							<input name="fullname" type="text" class="form-control" value="{{$auth.user.fullname}}">
+							<div class="invalid-feedback">Please enter a valid email
+								address for shipping updates.</div>
+						</div>
+						<div class="mb-3">
+							<label for="email">Email <span class="text-muted"></span></label>
+							<input name="email" type="text" class="form-control" value="{{$auth.user.email}}">
+							<div class="invalid-feedback">Please enter a valid email
+								address for shipping updates.</div>
+						</div>
+						<hr class="mb-4">
+						<button ng-click=""
+							class="btn btn-primary btn-lg btn-block" type="submit">Update</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer th:insert="/layout/_footer.html"></footer>
+
+
+	<!-- jQuery -->
+	<script th:src="@{/assets/js/jquery-2.1.0.min.js}"></script>
+	<!-- Bootstrap -->
+	<script th:src="@{/assets/js/popper.js}"></script>
+	<script th:src="@{/assets/js/bootstrap.min.js}"></script>
+	<!-- Plugins -->
+	<script th:src="@{/assets/js/owl-carousel.js}"></script>
+	<script th:src="@{/assets/js/accordions.js}"></script>
+	<script th:src="@{/assets/js/datepicker.js}"></script>
+	<script th:src="@{/assets/js/scrollreveal.min.js}"></script>
+	<script th:src="@{/assets/js/waypoints.min.js}"></script>
+	<script th:src="@{/assets/js/jquery.counterup.min.js}"></script>
+	<script th:src="@{/assets/js/imgfix.min.js}"></script>
+	<script th:src="@{/assets/js/slick.js}"></script>
+	<script th:src="@{/assets/js/lightbox.js}"></script>
+	<script th:src="@{/assets/js/isotope.js}"></script>
+	<script th:src="@{/assets/js/quantity.js}"></script>
+	<!-- Global Init -->
+	<script th:src="@{/assets/js/custom.js}"></script>
+
+	<script>
+		$(function() {
+			var selectedClass = "";
+			$("p").click(function() {
+				selectedClass = $(this).attr("data-rel");
+				$("#portfolio").fadeTo(50, 0.1);
+				$("#portfolio div").not("." + selectedClass).fadeOut();
+				setTimeout(function() {
+					$("." + selectedClass).fadeIn();
+					$("#portfolio").fadeTo(50, 1);
+				}, 500);
+
+			});
+		});
+	</script>
+</body>
+</html>

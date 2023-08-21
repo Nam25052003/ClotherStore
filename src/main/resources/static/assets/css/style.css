@@ -1,0 +1,6 @@
+.login_text li {
+    float: right;
+}
+.login_text li a{
+    display: block;
+}

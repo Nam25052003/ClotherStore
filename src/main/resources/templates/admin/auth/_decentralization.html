@@ -1,0 +1,22 @@
+<div xmlns="https://www.thymeleaf.org">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<div class="panel panel-default" ng-app="app" ng-controller="auth-ctrl">
+		<h3>Authorizing</h3>
+		<table ng-if="db" class="table table-condensed" style="width: 100%" border="1">
+			<thead class="bg-secondary" style="font-variant: small-caps;">
+				<tr>
+					<th></th>
+					<th ng-repeat="role in db.roles">{{role.name}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="acc in db.accounts">
+					<th>{{acc.username}}</th>
+					<th ng-repeat="role in db.roles"><input type="checkbox"
+						ng-checked="index_of(acc.username, role.id) >= 0"
+						ng-click="update(acc.username, role.id)"></th>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

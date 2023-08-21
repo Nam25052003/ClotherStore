@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="subscribe pb-30">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<div class="section-heading">
+						<h2>By Subscribing To Our Newsletter You Can Get 20% Off</h2>
+						<span>Subscrib now !</span>
+					</div>
+					<form id="subscribe" action="" method="get">
+						<div class="row">
+							<div class="col-lg-5">
+								<fieldset>
+									<input name="name" type="text" id="name"
+										placeholder="Your Name" required="">
+								</fieldset>
+							</div>
+							<div class="col-lg-5">
+								<fieldset>
+									<input name="email" type="text" id="email"
+										pattern="[^ @]*@[^ @]*" placeholder="Your Email Address"
+										required="">
+								</fieldset>
+							</div>
+							<div class="col-lg-2">
+								<fieldset>
+									<button type="submit" id="form-submit" class="main-dark-button">
+										<i class="fa fa-paper-plane"></i>
+									</button>
+								</fieldset>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col-lg-4">
+					<div class="row">
+						<div class="col-6">
+							<ul>
+								<li>Store Location:<br> <span>ThuDuc-TP.HCM</span></li>
+								<li>Phone:<br> <span>000-000-000</span></li>
+								<li>Office Location:<br> <span>ThuDuc-TP.HCM</span></li>
+							</ul>
+						</div>
+						<div class="col-6">
+							<ul>
+								<li>Work Hours:<br> <span>07:30 AM - 9:30 PM</span></li>
+								<li>Email:<br> <span>nam028200@gmail.com</span></li>
+								<li>Social Media:<br> <span> <a
+										th:href="@{/other/contact}">Facebook</a> <br> <a
+										th:href="@{/other/contact}">Instagram</a> <br> <a
+										th:href="@{/other/contact}">Behance</a> <br> <a
+										th:href="@{/other/contact}">Linkedin</a></span></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
